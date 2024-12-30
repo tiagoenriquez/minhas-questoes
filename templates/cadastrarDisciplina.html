@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content %}
+{% include "menuAdministrativo.html" %}
+<main>
+    <h1>Cadastro de Disciplina</h1>
+    <form action="/disciplina/insercao" method="post">
+        <div class="row">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" autofocus required />
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+</main>
+{% endblock %}

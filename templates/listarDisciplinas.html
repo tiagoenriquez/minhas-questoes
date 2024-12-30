@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block content %}
+{% include "menuAdministrativo.html" %}
+<main>
+    <h1>Lista de Disciplinas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th><th></th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disciplina in disciplinas %}
+            <tr>
+                <td>{{ disciplina.nome }}</td>
+                <td>
+                    <form action="/disciplina/edicao/{{ disciplina.id }}" method="get">
+                        <button type="submit">Editar</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/disciplina/exclusao/{{ disciplina.id }}" method="post">
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

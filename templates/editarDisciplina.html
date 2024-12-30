@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content %}
+{% include "menuAdministrativo.html" %}
+<main>
+    <h1>Edição de Disciplina</h1>
+    <form action="/disciplina/atualizacao/{{ disciplina.id }}" method="post">
+        <div class="row">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" value="{{ disciplina.nome }}" autofocus required />
+        </div>
+        <button type="submit">Atualizar</button>
+    </form>
+</main>
+{% endblock %}

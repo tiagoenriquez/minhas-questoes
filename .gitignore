@@ -1,0 +1,8 @@
+bin
+include
+lib
+lib64
+database.sqlite
+pyvenv.cfg
+__pycache__/
+teste.py
