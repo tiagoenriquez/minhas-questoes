@@ -1,18 +1,8 @@
-from src.models.Questao import Questao
-
-
 class Alternativa:
-    def __init__(self,
-        texto: str,
-        correto: bool,
-        questao_id: int,
-        questao: Questao | None = None,
-        id: int | None = None
-    ):
+    def __init__(self, texto: str, correto: bool, questao_id: int, id: int | None = None):
         self.texto = texto
         self.correto = correto
         self.questao_id = questao_id
-        self.questao = questao
         self.id = id
     
     def to_inserted_array(self):
@@ -22,10 +12,4 @@ class Alternativa:
         return [self.texto, self.correto, self.questao_id, self.id]
     
     def to_dict(self):
-        return {
-            "id": self.id,
-            "texto": self.texto,
-            "correto": self.correto,
-            "questao_id": self.questao_id,
-            "questao": self.questao
-        }
+        return {"id": self.id, "texto": self.texto, "correto": self.correto, "questao_id": self.questao_id}

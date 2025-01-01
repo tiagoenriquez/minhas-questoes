@@ -84,6 +84,14 @@ input {
     width: 256px;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+input[type="radio"] {
+    width: 32px;
+}
+
 label {
     font-family: var(--familha-da-fonte);
     font-size: var(--tamanho-da-fonte);
@@ -141,6 +149,17 @@ th {
 
 thead {
     background-color: var(--cor-clara);
+}
+
+textarea {
+    font-family: var(--familha-da-fonte);
+    font-size: var(--tamanho-da-fonte);
+    margin: var(--margem-grande);
+    padding: var(--padding-texto);
+}
+
+.label-for-textarea {
+    text-align: center;
 }
 
 .row {

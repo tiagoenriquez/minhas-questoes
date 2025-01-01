@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block content %}
+{% include "menuAdministrativo.html" %}
+<main>
+    <h1>Cadastro de Questão</h1>
+    <form action="#" method="get" enctype="multipart/form-data">
+        <div class="row">
+            <label for="nome">Disciplina</label>
+            <select name="disciplina_id" id="disciplina_id" autofocus required>
+                <option value="0"></option>
+                {% for disciplina in disciplinas %}
+                <option value="{{ disciplina.id }}">{{ disciplina.nome }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <h2>Enunciado</h2>
+        <textarea name="enunciado" id="enunciado" cols="80" rows="8" required></textarea>
+        <div class="row">
+            <label for="imagem">Insira uma imagem ao enunciado</label>
+            <input type="file" name="imagem" id="imagem" accept="image/jpeg,image/png" oninput="escreverImagem()" />
+            <input type="text" name="nome-da-imagem" title="Cole o nome da imagem no enunciado" readonly />
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+</main>
+{% endblock %}

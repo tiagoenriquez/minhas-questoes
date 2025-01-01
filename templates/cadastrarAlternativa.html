@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+{% include "menuAdministrativo.html" %}
+<main>
+    <h1>Cadastro de Alternativa</h1>
+    {% include "enunciado.html" %}
+    {% include "alternativas.html" %}
+    <form action="#" method="get">
+        <label for="texto" class="label-for-textarea">Texto</label>
+        <textarea name="texto" id="texto"></textarea>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <form action="#" method="get">
+        <button type="submit">Escolher Alternativa Correta</button>
+    </form>
+</main>
+{% endblock %}

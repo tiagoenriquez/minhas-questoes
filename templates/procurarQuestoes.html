@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content %}
+{% include "menuAdministrativo.html" %}
+<main>
+    <h1>Procurar Questão</h1>
+    <form action="#" method="get">
+        <div class="row">
+            <label for="trecho">Trecho</label>
+            <input type="text" name="trecho" id="trecho" autofocus required />
+            <button type="submit">Procurar</button>
+        </div>
+    </form>
+</main>
+{% endblock %}

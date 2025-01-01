@@ -1,0 +1,15 @@
+<table>
+    <thead>
+        <tr>
+            <td colspan="2">Alternativas</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i, alternativa in enumerate(questao.alternativas) %}
+        <tr>
+            <td>{{ str(i + 1) }}</td>
+            <td>{{ alternativa.texto }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
