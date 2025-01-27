@@ -1,0 +1,259 @@
+:root {
+  --dark-color: rgb(24, 48, 72);
+  --green: rgb(12, 176, 36);
+  --light-color: rgb(152, 176, 200);
+  --main-color: rgb(48, 96, 144);
+  --red: rgb(204, 24, 36);
+  --slightly-dark-color: rgb(36, 72, 108);
+  --slightly-light-color: rgb(100, 136, 172);
+  --very-dark-color: rgb(12, 24, 36);
+  --very-light-color: rgb(204, 216, 228);
+  --yellow: rgb(204, 216, 36);
+  --header-height: 48px;
+  --font-family: serif;
+  --big-margin: 8px 8px 8px 8px;
+  --small-margin: 4px 4px 4px 4px;
+  --padding-to-text: 4px 8px 4px 8px;
+  --font-size: 16px;
+}
+
+a {
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: var(--big-margin);
+  padding: var(--padding-to-text);
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: var(--dark-color);
+}
+
+a:active {
+  background-color: var(--slightly-light-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+button {
+  background-color: var(--very-dark-color);
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: var(--big-margin);
+  padding: var(--padding-to-text);
+}
+
+button:hover {
+  background-color: var(--dark-color);
+}
+
+button:hover {
+  background-color: var(--slightly-light-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: var(--font-family);
+  font-size: calc(var(--font-size)*2);
+  margin: var(--big-margin);
+}
+
+header {
+  background-color: var(--very-dark-color);
+  height: var(--header-height);
+  width: 100vw;
+}
+
+input {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: var(--big-margin);
+  padding: var(--padding-to-text);
+  width: 256px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  height: 20px;
+  width: 32px;
+}
+
+label {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: var(--big-margin);
+  text-align: right;
+  width: 192px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh-var(var(--header-height)));
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+p {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  text-align: left;
+}
+
+select {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: var(--big-margin);
+  padding: var(--padding-to-text);
+  width: 256px;
+}
+
+table {
+  margin: var(--big-margin);
+}
+
+tbody tr:hover {
+  background-color: var(--very-light-color);
+}
+
+td {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  padding: var(--padding-to-text);
+  text-align: center;
+}
+
+th {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  padding: var(--padding-to-text);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+thead {
+  background-color: var(--light-color);
+}
+
+textarea {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: var(--big-margin);
+  padding: var(--padding-to-text);
+}
+
+.alternative {
+  display: flex;
+  align-items: center;
+  padding: 8px 128px;
+}
+
+.alternatives {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment {
+  font-size: calc(var(--font-size) * 3 / 4);
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.correct {
+  background-color: var(--green);
+  color: white;
+}
+
+.error {
+  background-color: var(--red);
+  color: white;
+  margin: var(--big-margin);
+  padding: var(--padding-to-text);
+}
+
+.image-label {
+  cursor: pointer;
+}
+
+.label-for-textarea {
+  text-align: center;
+}
+
+.repeated {
+  background-color: rgb(204, 216, 36);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.success {
+  background-color: var(--green);
+  color: white;
+  margin: var(--big-margin);
+  padding: var(--padding-to-text);
+}
+
+.test-alternative {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  padding: 8px 128px;
+}
+
+.unselected {
+  background-color: var(--yellow);
+}
+
+.wrong {
+  background-color: var(--red);
+  color: white;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+}
