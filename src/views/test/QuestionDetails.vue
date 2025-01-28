@@ -11,6 +11,12 @@ const paragraphs = question.statement.split('\n').map((paragraph, index) => {
   return { index, text: paragraph };
 });
 
+function getImageSource(text) {
+  const fileName = text.replace('@image=', '').replace('\r', '');
+  const imageSource = store.state.test.images.filter(image => image.name === fileName)[0].content;
+  return `data:image/png;base64,${imageSource}`;
+}
+
 function getAlternativeCommentAndClass(alternative) {
   if (alternative.correct && alternative.selected) {
     return { class: 'correct', comment: 'Alternativa correta selecionada:' };
@@ -42,7 +48,10 @@ const alternatives = question.alternatives.map((alternative, index) => {
   <main>
     <h1>Detalhes da questão {{ question.number }}</h1>
     <div class="text">
-      <p v-for="paragraph in paragraphs" :key="paragraph.index">{{ paragraph.text }}</p>
+      <div v-for="paragraph in paragraphs" :key="paragraph.id">
+        <p v-if="!paragraph.text.startsWith('@image=')">{{ paragraph.text }}</p>
+        <img v-else :src="getImageSource(paragraph.text)" alt="Imagem não encontrada" />
+      </div>
     </div>
     <div class="alternatives">
       <div class="alternative" v-for="alternative in alternatives" :key="alternative.index">
