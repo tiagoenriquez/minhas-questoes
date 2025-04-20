@@ -232,9 +232,15 @@ textarea {
   padding: var(--padding-to-text);
 }
 
-.test-alternative {
+.text-alternative {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  width: auto;
+}
+
+.text-alternative:hover {
+  background-color: var(--very-light-color);
 }
 
 .text {

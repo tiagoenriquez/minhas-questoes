@@ -15,7 +15,7 @@ axios.get(`${apiUrl}/subjects/`).then((result => {
   if (subjects.value.length === 0) throw new Error('Não há disciplina cadastrada.');
 })).catch(error => {
   store.commit('setError', error.message);
-  router.push('/erro');
+  router.push('erro');
 });
 
 function edit(id) {
@@ -23,10 +23,16 @@ function edit(id) {
 }
 
 function destroy(id) {
-  axios.delete(`${apiUrl}/subjects/${id}`).then(result => {
-    window.location.reload();
+  axios.delete(`${apiUrl}/subjects/${id}`).then(() => {
+    if (subjects.value.length === 1) {
+      store.commit('setError', 'Não há disciplinas cadastradas.');
+      router.push('/erro');
+    } else {
+      subjects.value = subjects.value.filter(subject => subject.id !== id);
+    }
   }).catch(err => {
-    error.value = err.response.data
+    store.commit('setError', err.message);
+    router.push('/erro');
   });
 }
 </script>

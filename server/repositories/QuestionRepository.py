@@ -3,9 +3,9 @@ from server.models.Alternative import Alternative
 from server.models.Question import Question
 
 
-def delete(id: int) -> None:
+def delete(subject_id: int) -> None:
     with connection:
-        connection.execute('delete from questions where id = ?', [id])
+        connection.execute('delete from questions where subject_id = ?', [subject_id])
         connection.commit()
 
 def find_by_excerpt(excerpt: str) -> list[Question]:

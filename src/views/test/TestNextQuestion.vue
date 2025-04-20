@@ -95,10 +95,10 @@ function respond() {
     </div>
     <div class="alternatives">
       <div class="alternative" v-for="alternative in alternatives" :key="alternative.index">
-        <input type="radio" name="correct" v-model="selected" :value="alternative.index"/>
-        <div class="text-alternative">
+        <input type="radio" name="correct" :id="`alternative-${alternative.index}`" v-model="selected" :value="alternative.index"/>
+        <label class="text-alternative" :for="`alternative-${alternative.index}`">
           <p v-for="paragraph in alternative.paragraphs" :key="paragraph.index">{{ paragraph.text }}</p>
-        </div>
+        </label>
       </div>
     </div>
     <button @click="respond()">Responder</button>

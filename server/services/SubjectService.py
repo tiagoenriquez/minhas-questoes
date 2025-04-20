@@ -1,5 +1,6 @@
 from server.error_handler.HTTPException import HTTPException
 from server.models.Subject import Subject
+from server.repositories import AlternativeRepository
 from server.repositories import QuestionRepository
 from server.repositories import SubjectRepository
 
@@ -8,12 +9,15 @@ def all() -> list[Subject]:
     return SubjectRepository.all()
 
 def delete(id: int) -> None:
-    if QuestionRepository.find_by_subject_id(id):
-        raise HTTPException('Existem questões da discipliana informada', 400)
+    AlternativeRepository.delete(id)
+    QuestionRepository.delete(id)
     SubjectRepository.delete(id)
 
 def find(id: int) -> Subject:
-    return SubjectRepository.find(id)
+    subject = SubjectRepository.find(id)
+    if not subject:
+        raise HTTPException("Disciplina não encontrada", 404)
+    return subject
 
 def insert(subject: Subject) -> None:
     __validate_name(subject.name)

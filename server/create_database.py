@@ -5,6 +5,7 @@ from server.databases.SubjectDefinition import subject_definition
 
 
 with connection:
+    connection.execute("PRAGMA foreign_keys = ON;")
     cursor = connection.cursor()
     cursor.execute(subject_definition)
     cursor.execute(question_definition)

@@ -2,9 +2,13 @@ from server.connections.DatabaseConnection import connection
 from server.models.Alternative import Alternative
 
 
-def delete(question_id: id) -> None:
+def delete(subject_id: int) -> None:
     with connection:
-        connection.execute('delete from alternatives where question_id = ?', [question_id])
+        connection.execute(
+            'delete from alternatives where question_id in (select id from questions where subject_id = ?)',
+            [subject_id]
+        )
+        connection.commit()
 
 def insert(alternatives: list[Alternative], question_id: int) -> None:
     data = [(alternative.alternative_text, alternative.correct, question_id) for alternative in alternatives]

@@ -81,6 +81,11 @@ const router = createRouter({
       name: 'find-question',
       component: FindQuestion
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      redirect: '/erro'
+    }
   ],
 })
 

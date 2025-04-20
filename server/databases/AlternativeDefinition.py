@@ -4,6 +4,6 @@ create table alternatives (
     alternative_text text,
     correct boolean not null,
     question_id interger not null,
-    foreign key (question_id) references questions (id)
+    foreign key (question_id) references questions (id) on delete cascade
 )
 """
